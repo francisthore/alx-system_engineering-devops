@@ -1,2 +1,2 @@
-#!bin/bash
+#!/ybin/bash
 type ~/../tmp/iamafile
