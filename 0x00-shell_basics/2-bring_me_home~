@@ -1,0 +1,3 @@
+#!/bin/bash
+cd $HOME
+echo 'This line ran'
