@@ -1,2 +1,2 @@
 #!/bin/bash
-touch somefile
+touch "\*\\'\"Best School\"\'\\*$\?\*\*\*\*\*:)"
