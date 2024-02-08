@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # Checks if host is on net through a ping of 5 packets
+if [ -z "$1" ]; then
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+	exit 1
+fi
 
-
+ping -c 5 $1
