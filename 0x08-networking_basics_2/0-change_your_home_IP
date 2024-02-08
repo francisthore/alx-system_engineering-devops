@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#changes the hosts file
+echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" >> /etc/hosts
