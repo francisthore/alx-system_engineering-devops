@@ -1,3 +1,4 @@
+# This puppet manifest creates a new file
 file  {'create-file':
   ensure  =>  'present',
   path    =>  '/tmp/school',
