@@ -1,7 +1,7 @@
 # this manifest installs flask
 package { 'flask':
-  require  => Package['python3-pip'],
   ensure   => '2.1.0',
+  require  => Package['python3-pip'],
   provider => 'pip3',
 }
 
