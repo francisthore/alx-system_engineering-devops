@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # setups nginx on my webserver
-apt-get update && sudo apt-get install nginx -y
+apt-get update
+apt-get install nginx -y
 ufw allow 'Nginx HTTP'
 sh -c 'echo "Hello World!" > /var/www/html/index.html'
