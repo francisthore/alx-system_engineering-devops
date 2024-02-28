@@ -2,7 +2,7 @@
 # setups nginx on my webserver
 apt-get update
 apt-get install nginx -y
-
+sh -c 'echo "Hello World!" > /var/www/html/index.html'
 echo "server {
     listen 80;
     server_name _;
