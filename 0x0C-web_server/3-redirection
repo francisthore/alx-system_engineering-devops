@@ -3,22 +3,13 @@
 apt-get update
 apt-get install nginx -y
 sh -c 'echo "Hello World!" > /var/www/html/index.html'
-echo "
-events {}
-http {
-    server {
-        listen 80;
-        server_name _;
+echo "server {
+    listen 80;
 
-        location / {
-            root /var/www/html;
-            try_files /index.html =404;
-       }
-
-       location /redirect_me {
-           return 301 https://www.youtube.com/watch?v=6KFOcDmcoBg ;
-       }
+    location / {
+        root /var/www/html;
+        try_files /index.html =404;
     }
-}" > /etc/nginx/nginx.conf
+}" > /etc/nginx/sites-available/default
 
-nginx -s reload
+service nginx restart
