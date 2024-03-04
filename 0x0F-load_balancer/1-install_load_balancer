@@ -3,12 +3,12 @@
 apt-get update
 apt-get install haproxy -y
 echo "
-frontend http_front
+frontend thore.tech
 	bind *:80
-	stats uri /haproxy?stats
-	default_backend http_back
+	default_backend web_servers
 
-backend http_back
+backend web_servers
+	mode http
 	balance roundrobin
 	server 339486-web-01 54.82.134.179:80 check
 	server 339486-web-02 34.224.16.69:80 check 
