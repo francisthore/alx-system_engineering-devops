@@ -13,5 +13,4 @@ backend web_servers
 	server 339486-web-01 54.82.134.179:80 check
 	server 339486-web-02 34.224.16.69:80 check 
 " > /etc/haproxy/haproxy.cfg
-systemctl restart haproxy
-systemctl enable haproxy
+service haproxy restart
