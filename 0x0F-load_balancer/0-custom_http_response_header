@@ -4,22 +4,28 @@ apt-get update
 apt-get install nginx -y
 sh -c 'echo "Hello World!" > /var/www/html/index.html'
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-echo "server {
-    listen 80;
+mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
+echo "
+events { }
 
-    location / {
-        root /var/www/html;
-	add_header X-Served-By $HOSTNAME;
-    }
+http {
+	server {
+    		listen 80;
 
-    location /redirect_me {
-    	return 301 https://www.youtube.com/watch?v=6KFOcDmcoBg;
+    	location / {
+        	root /var/www/html;
+		add_header X-Served-By $HOSTNAME;
+    	}
+
+    	location /redirect_me {
+    		return 301 https://www.youtube.com/watch?v=6KFOcDmcoBg;
 	}
-    error_page 404 /custom_404.html;
-    location = /custom_404.html {
-        root /var/www/html;
-	internal;
-    }
-}" > /etc/nginx/sites-available/default
+    	error_page 404 /custom_404.html;
+    	location = /custom_404.html {
+        	root /var/www/html;
+		internal;
+    	}
+	}
+}" > /etc/nginx/nginx.conf
 
 service nginx restart
