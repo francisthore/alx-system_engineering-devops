@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# runs commands as different user
+runuser -l "$1" -c 'whoami'
