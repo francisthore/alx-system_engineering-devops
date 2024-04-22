@@ -10,7 +10,7 @@ if __name__ == "__main__":
     user_response = requests.get(user_url).json()
     todo_response = requests.get(todo_url).json()
     try:
-        name = user_response['name']
+        name = user_response.get('name')
         completed = [task for task in todo_response if task['completed']]
         print('Employee {} is done with tasks({}/{}):'.format(
             name, len(completed), len(todo_response)
