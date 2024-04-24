@@ -16,6 +16,6 @@ if __name__ == "__main__":
             name, len(completed), len(todo_response)
         ))
         for task in completed:
-            print('\t{}'.format(task['title']))
+            print('\t {}'.format(task['title']))
     except Exception as e:
         print(e)
