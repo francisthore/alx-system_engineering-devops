@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# run nginx as itself
-sed -i 's/^user .*;/user nginx;/g' /etc/nginx/nginx.conf
-sed -i 's/listen[ ]*80;/listen 8080;/g' /etc/nginx/sites-available/default
-chown -R nginx:nginx /usr/share/nginx/html
-chown -R nginx:nginx /var/log/nginx
-chown -R nginx:nginx /var/lib/nginx
-nginx -t && service nginx restart  
