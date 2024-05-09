@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# backs up the database and creates an archive
-sudo mysqldump -uroot -p"$1" --all-databases > backup.sql
-tar -czvf $(date +"%d-%m-%Y").tar.gz ./backup.sql
