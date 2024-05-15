@@ -10,7 +10,7 @@ frontend thore.tech
 backend web_servers
 	mode http
 	balance roundrobin
-	server 339486-web-01 3.84.239.148:80 check
-	server 339486-web-02 100.26.243.121:80 check 
+	server 339486-web-01 100.26.229.162 check
+	server 339486-web-02 54.174.85.129:80 check 
 " > /etc/haproxy/haproxy.cfg
 service haproxy restart
