@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # changes nginx server config to listen on port 80
-sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+apt update
+apt install nginx -y
+sed -i 's/listen 8080 default_server;/listen 80 default_server;/' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:8080 default_server;/listen \[::\]:80 default_server;/' /etc/nginx/sites-available/default
 service nginx restart
