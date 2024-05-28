@@ -1,10 +1,28 @@
 #!/usr/bin/env bash
 # run  nginx as nginx
-sudo adduser --disabled-password nginx
-sudo sed -i 's/^user .*;/user nginx;/g' /etc/nginx/nginx.conf
-sudo sed -i 's/listen[ ]*80;/listen 8080;/g' /etc/nginx/sites-available/default
+sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bk
+echo "
+user nginx;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    server {
+        listen 8080 default_server;
+        server_name _;
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html index.htm;
+        }
+    }
+}" /etc/nginx/nginx.conf
 sudo chown -R nginx:nginx /usr/share/nginx/html
 sudo chown -R nginx:nginx /var/log/nginx
-sudo chown -R nginx:nginx /var/lib/nginx
-sudo nginx -t 
+sudo chmod -R 755 /usr/share/nginx/html
+sudo chmod -R 755 /var/log/nginx
 sudo service nginx restart  
