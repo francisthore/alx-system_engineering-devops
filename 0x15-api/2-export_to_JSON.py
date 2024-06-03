@@ -21,9 +21,9 @@ if __name__ == '__main__':
     if todos and emp:
         username = emp.get('username')
         tasks_list = []
-        task_dict = {}
         data = {}
         for task in todos:
+            task_dict = {}
             task_dict['task'] = task.get('title')
             task_dict['completed'] = task.get('completed')
             task_dict['username'] = username
