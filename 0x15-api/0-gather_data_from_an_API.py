@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """
-    Retrieves a TODO list progress for a
-    given employee ID
-
-    Usage: ./module <id>
+Retrieves a TODO list progress for a
+given employee ID
+Usage: ./module <id>
 """
 
 import requests
