@@ -11,7 +11,7 @@ def top_ten(subreddit):
     if subreddit is None:
         print(None)
         return
-    url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/top.json?limit=10'.format(subreddit)
     headers = {
         'User-Agent': 'mamba'
     }
