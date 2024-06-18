@@ -12,9 +12,8 @@ def number_of_subscribers(subreddiit):
         return 0
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddiit)
     headers = {
-    'User-Agent': 'f.alx'
+        'User-Agent': 'mamba'
     }
-
 
     with requests.get(url, headers=headers, allow_redirects=False) as res:
         if res.status_code == 200:
