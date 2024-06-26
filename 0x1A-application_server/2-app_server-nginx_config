@@ -3,33 +3,16 @@ events { }
 
 http {
         server {
-                listen 80;
+                listen 80 default_server;
+		listen [::]:80 default_server;
 
-        location / {
-                root /var/www/html;
+		server_name 100.26.229.162;
 		add_header X-Served-By 339486-web-01;
+		
+	location = /airbnb-onepage {
+		proxy_pass http://localhost:5000/airbnb-onepage;
         }
 
-        location /hbnb_static {
-            alias /data/web_static/current/;
-        }
 
-        location /redirect_me {
-                return 301 https://mambatechsol.com;
-            }
-        error_page 404 /custom_404.html;
-        location = /custom_404.html {
-                root /var/www/html;
-                internal;
-        }
-
-	location /airbnb-onepage {
-		proxy_pass http://localhost:5000;
 	}
-
-	location /airbnb-dynamic {
-		rewrite ^/airbnb-dynamic(.*) $1 break;
-		proxy_pass http://localhost:5001;
-	}
-        }
 }
