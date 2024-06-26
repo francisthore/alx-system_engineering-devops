@@ -1,18 +1,24 @@
+# Default server configuration
+#
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-events { }
+	# external IP and custom header
+	server_name 100.26.229.162;
+	add_header X-Served-By 339486-web-01;
 
-http {
-        server {
-                listen 80 default_server;
-		listen [::]:80 default_server;
-
-		server_name 100.26.229.162;
-		add_header X-Served-By 339486-web-01;
-		
+	# airbnb route to be proxied to backend
 	location = /airbnb-onepage {
+		# reverse proxy to flask app
 		proxy_pass http://localhost:5000/airbnb-onepage;
-        }
-
-
 	}
+
+
+	# handling 404
+	error_page 404 /custom_404.html;
+        location = /custom_404.html {
+                root /var/www/html;
+                internal;
+        }
 }
